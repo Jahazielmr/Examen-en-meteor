@@ -28,8 +28,8 @@
     <h1>Feed</h1>
     {{#if currentUser}}
       <ul class="collection">
-        {{#each notes}}
-          {{> note}}
+        {{#each mensajes}}
+          {{> mensajes}}
         {{/each}}
       </ul>
     {{else}}
@@ -47,10 +47,10 @@
   </script>
 </body>
 
-<template name="note">
+<template name="mensajes">
   <li class="collection-item">
     {{text}}: <strong> Author: {{username}}</strong>
-    <a href="#" class="delete-note secondary-content"><i class="material-icons">close</i></a>
+    <a href="#" class="delete-mensajes secondary-content"><i class="material-icons">close</i></a>
   </li>
 </template>
 
