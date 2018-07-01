@@ -1,25 +1,72 @@
 <head>
-  <title>SocialMEdia</title>
+  <title>Social Media</title>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="main.css">  
+
 </head>
 
 <body>
-  <h1>Welcome to Meteor!</h1>
+  <nav class="red" id="barra">
+    <div class="container" id="barra">
+      <div class="nav-wrapper" id="barra">
+        <a href="#" class="brand-logo" id="logo">Social Media</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          {{#if currentUser}}
+            <li class="nav-item">
+               <a class="waves-effect waves-light btn" href="#addModal" id="Perra">Add Message</a>
+            </li>
+          {{/if}}
+          <li class="nav-item">
+            {{> loginButtons}}
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
-  {{> hello}}
-  {{> info}}
+  <div class="container">
+    <h1>Feed</h1>
+    {{#if currentUser}}
+      <ul class="collection">
+        {{#each notes}}
+          {{> note}}
+        {{/each}}
+      </ul>
+    {{else}}
+      <p>Please log in in social media, your network</p>
+    {{/if}}
+  </div>
+
+  
+  {{> add}}
+
+  <script>
+    $(document).ready(function(){
+      $('.modal').modal();
+    });
+  </script>
 </body>
 
-<template name="hello">
-  <button>Click Me</button>
-  <p>You've pressed the button {{counter}} times.</p>
+<template name="note">
+  <li class="collection-item">
+    {{text}}: <strong> Author: {{username}}</strong>
+    <a href="#" class="delete-note secondary-content"><i class="material-icons">close</i></a>
+  </li>
 </template>
 
-<template name="info">
-  <h2>Learn Meteor!</h2>
-  <ul>
-    <li><a href="https://www.meteor.com/try" target="_blank">Do the Tutorial</a></li>
-    <li><a href="http://guide.meteor.com" target="_blank">Follow the Guide</a></li>
-    <li><a href="https://docs.meteor.com" target="_blank">Read the Docs</a></li>
-    <li><a href="https://forums.meteor.com" target="_blank">Discussions</a></li>
-  </ul>
+<template name="add">
+  <!-- Modal Structure -->
+  <div id="addModal" class="modal">
+    <div class="modal-content">
+      <h3>Add Note</h3>
+      <form class="add-form">
+        <input type="text" name="text" placeholder="Add note...">
+      </form>
+    </div>
+  </div>
 </template>
+
+  
+</body>
+
+
