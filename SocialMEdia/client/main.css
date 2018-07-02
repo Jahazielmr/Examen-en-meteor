@@ -1,4 +1,14 @@
-body {
-  padding: 10px;
-  font-family: sans-serif;
+
+#Perra{
+  color:white;
+  font-size: 25px;
+}
+
+#logo{
+  color: white;
+  font-size: 30px;    
+}
+
+#barra{
+  background-color: blue;
 }
