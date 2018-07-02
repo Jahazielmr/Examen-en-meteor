@@ -1,8 +1,7 @@
 <head>
   <title>Social Media</title>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="main.css">  
-
+  <link rel="stylesheet" type="text/css" href="main.css">
 </head>
 
 <body>
@@ -23,13 +22,12 @@
       </div>
     </div>
   </nav>
-
   <div class="container">
     <h1>Feed</h1>
     {{#if currentUser}}
       <ul class="collection">
-        {{#each mensajes}}
-          {{> mensajes}}
+        {{#each notes}}
+          {{> note}}
         {{/each}}
       </ul>
     {{else}}
@@ -37,7 +35,6 @@
     {{/if}}
   </div>
 
-  
   {{> add}}
 
   <script>
@@ -45,10 +42,12 @@
       $('.modal').modal();
     });
   </script>
-<template name="mensajes">
+</body>
+
+<template name="note">
   <li class="collection-item">
     {{text}}: <strong> Author: {{username}}</strong>
-    <a href="#" class="delete-mensajes secondary-content"><i class="material-icons">close</i></a>
+    <a href="#" class="delete-note secondary-content"><i class="material-icons">close</i></a>
   </li>
 </template>
 
@@ -63,8 +62,3 @@
     </div>
   </div>
 </template>
-
-
-</body>
-
-
